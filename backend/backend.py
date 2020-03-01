@@ -13,7 +13,8 @@ for resource in resources:
     if resource.tabular:
         iso = pd.read_csv(resource.descriptor['path'])
         corona = pd.read_csv('02-29-2020.csv')
-        clean (corona, iso)
+        corona = clean.cl(corona, iso)
+        
 #
 #from concurrent import futures
 #from __future__ import print_function
