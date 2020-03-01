@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 
 import logging
 
@@ -7,8 +8,8 @@ import grpc
 import frontend_pb2
 import frontend_pb2_grpc
 
-
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/getmessage")
 def hello():
@@ -18,7 +19,7 @@ def hello():
 
 @app.route("/")
 def default():
-    print("Fuck you")
+    return "Fuck you"
 
 def rpc():
    
