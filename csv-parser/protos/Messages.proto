@@ -5,6 +5,11 @@ service Messenger {
     rpc HasUpdate (Date) returns (UpdateStatus) {}  
 }
 
+message Location {
+    float latitude = 1;
+    float longitude = 2;
+}
+
 message Date {
     int32 month = 1;
     int32 day = 2;
@@ -12,12 +17,11 @@ message Date {
 }
 
 message Row {
-    float latitude = 1;
-    float longitude = 2;
-    Date date = 3;
-    int32 confirmed_cases = 4;
-    int32 confirmed_deaths = 5;
-    int32 confirmed_recovered = 6;
+    Location location = 1;
+    Date date = 2;
+    int32 confirmed_cases = 3;
+    int32 confirmed_deaths = 4;
+    int32 confirmed_recovered = 5;
 }
 
 message Dump {
