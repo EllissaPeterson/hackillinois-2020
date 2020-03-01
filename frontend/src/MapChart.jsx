@@ -49,7 +49,6 @@ export default class MapChart extends Component {
               geographies.map(geo => {
                 
                 const d = data.find(s => s.ISO3 === geo.properties.ISO_A3);
-                console.log(d)
                 return (
                   <Geography
                     key={geo.rsmKey}
