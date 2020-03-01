@@ -2,7 +2,7 @@
 
 title: risk assessment and data visualization of 2019 novel coronavirus (2019-nCoV)
 
-WHO: epidemic (not pandemic)\n
+WHO: epidemic (not pandemic)<br>
 -> epidemic definition
 -> epidemic can become pandemic
 
