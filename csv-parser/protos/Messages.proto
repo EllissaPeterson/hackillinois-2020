@@ -1,7 +1,8 @@
 syntax = "proto3";
 
 service Messenger {
-    rpc SendDump (DumpRequest) returns (Dump) {}
+    rpc GetDump (Date) returns (Dump) {}
+    rpc HasUpdate (Date) returns (UpdateStatus) {}  
 }
 
 message Date {
@@ -23,6 +24,6 @@ message Dump {
     repeated Row rows = 1;
 }
 
-message DumpRequest {
-    bool init = 1;
+message UpdateStatus {
+    bool pull = 1;
 }
