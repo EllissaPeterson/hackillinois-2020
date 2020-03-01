@@ -1,16 +1,9 @@
 # Risk Assessment and Data Visualization of 2019 Novel Coronavirus (SARS-CoV-2)
 
-WHO: epidemic (not pandemic)<br>
--> epidemic definition<br>
--> epidemic can become pandemic<br>
+Currently classified as an epidemic by the World Health Organization (WHO), coronavirus is on its way to becoming a pandemic as it continues to spread geographically to more regions of the world. This program aims to provide assistance in global aid allocation and spread individuals' awareness, showing comparitive severity of imminent danger to persons in different countries.<br>
 
-incorrect numbers<br>
--> lack of reporting<br>
--> motivation: decrease negative economic effects, panic<br>
--> february 12<br>
+It is important to note that lack of accurate reporting on affected persons due to fears of inducing public panic and negative economic effects has had reprecussions on modeling accuracy.<br>
 
-machine learning
--> life expectancy
--> age group distribution per country
+The project mainly consists of a visualization that actively draws data from <a href="https://github.com/CSSEGISandData/COVID-19">this GitHub repository</a> put together by Johns Hopkins University Center for Systems Science and Engineering. In addition, a neural network machine learning model taking into account life expectancy, age group distribution, and sanitary standards in each country predicts future data for countries using China as a training set.<br>
 
-Visit the CDC website for more info: (hyperlink) https://www.cdc.gov/coronavirus/2019-ncov/summary.html
+Potential for improvements include building up graphical interface, increasing model accuracy, and finetuning system-wide interoperability.
