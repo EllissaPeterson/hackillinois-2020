@@ -27,7 +27,7 @@ export default class MapChart extends Component {
     const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
     const colorScale = scaleLog()
-    .domain([0, 90000])
+    .domain([1, 90000])
     .range(["#73956F", "#95D7AE"]);
 
     var data = this.props.mapdata
