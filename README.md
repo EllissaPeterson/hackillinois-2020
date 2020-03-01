@@ -10,3 +10,5 @@ incorrect numbers
 -> lack of reporting
 -> motivation: decrease negative economic effects, panic 
 -> february 12
+
+Visit the CDC website for more info: (hyperlink) https://www.cdc.gov/coronavirus/2019-ncov/summary.html
