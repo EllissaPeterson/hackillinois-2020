@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { csv } from "d3-fetch";
+
 import { scaleLinear } from "d3-scale";
 import {
   ComposableMap,
@@ -9,50 +10,60 @@ import {
   Graticule
 } from "react-simple-maps";
 
-const geoUrl =
-  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const colorScale = scaleLinear()
-  .domain([0.29, 0.68])
-  .range(["#ffedea", "#ff5233"]);
+export default class MapChart extends Component {
+  
+  
 
-const MapChart = () => {
-  const [data, setData] = useState([]);
+  constructor(props){
+    super(props);
+    this.state = {
+        userData: null,
+    };
+  }
 
-  useEffect(() => {
-    csv(`/country.csv`).then(data => {
-      setData(data);
-    });
-  }, []);
 
-  return (
-    <ComposableMap
-      projectionConfig={{
-        rotate: [-10, 0, 0],
-        scale: 147
-      }}
-    >
-      <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
-      <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
-      {data.length > 0 && (
-        <Geographies geography={geoUrl}>
-          {({ geographies }) =>
-            geographies.map(geo => {
-              
-              const d = data.find(s => s.ISO3 === geo.properties.ISO_A3);
-              return (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill={d ? colorScale(d["2017"]) : "#F5F4F6"}
-                />
-              );
-            })
-          }
-        </Geographies>
-      )}
-    </ComposableMap>
-  );
-};
+  render(){
+    const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-export default MapChart;
+    const colorScale = scaleLinear()
+    .domain([0.29, 0.68])
+    .range(["#ffedea", "#ff5233"]);
+
+    var data = this.props.mapdata
+
+
+    return (
+      <ComposableMap
+        projectionConfig={{
+          rotate: [-10, 0, 0],
+          scale: 147
+        }}
+      >
+        <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
+        <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
+        {data.length > 0 && (
+          <Geographies geography={geoUrl}>
+
+            {({ geographies }) =>
+              geographies.map(geo => {
+                
+                const d = data.find(s => s.ISO3 === geo.properties.ISO_A3);
+                console.log(d)
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={d ? colorScale(d["Confirmed"]) : "#F5F4F6"}
+                  />
+                );
+              })
+            }
+          </Geographies>
+        )}
+      </ComposableMap>
+    );
+
+
+  }    
+}

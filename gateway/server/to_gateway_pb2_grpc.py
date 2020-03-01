@@ -4,49 +4,7 @@ import grpc
 import to_gateway_pb2 as to__gateway__pb2
 
 
-class temporalGraphStub(object):
-  """temporal service definition
-  """
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.temps = channel.unary_unary(
-        '/temporalGraph/temps',
-        request_serializer=to__gateway__pb2.temp_in.SerializeToString,
-        response_deserializer=to__gateway__pb2.temp_out.FromString,
-        )
-
-
-class temporalGraphServicer(object):
-  """temporal service definition
-  """
-
-  def temps(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-
-def add_temporalGraphServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'temps': grpc.unary_unary_rpc_method_handler(
-          servicer.temps,
-          request_deserializer=to__gateway__pb2.temp_in.FromString,
-          response_serializer=to__gateway__pb2.temp_out.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'temporalGraph', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
-
-
-class geographicGraphStub(object):
+class GeoGraphicGraphStub(object):
   """geographic service definition
   """
 
@@ -56,18 +14,18 @@ class geographicGraphStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.geos = channel.unary_unary(
-        '/geographicGraph/geos',
-        request_serializer=to__gateway__pb2.geo_in.SerializeToString,
-        response_deserializer=to__gateway__pb2.geo_out.FromString,
+    self.getGeoData = channel.unary_stream(
+        '/GeoGraphicGraph/getGeoData',
+        request_serializer=to__gateway__pb2.Date.SerializeToString,
+        response_deserializer=to__gateway__pb2.geoPoint.FromString,
         )
 
 
-class geographicGraphServicer(object):
+class GeoGraphicGraphServicer(object):
   """geographic service definition
   """
 
-  def geos(self, request, context):
+  def getGeoData(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -75,14 +33,14 @@ class geographicGraphServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_geographicGraphServicer_to_server(servicer, server):
+def add_GeoGraphicGraphServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'geos': grpc.unary_unary_rpc_method_handler(
-          servicer.geos,
-          request_deserializer=to__gateway__pb2.geo_in.FromString,
-          response_serializer=to__gateway__pb2.geo_out.SerializeToString,
+      'getGeoData': grpc.unary_stream_rpc_method_handler(
+          servicer.getGeoData,
+          request_deserializer=to__gateway__pb2.Date.FromString,
+          response_serializer=to__gateway__pb2.geoPoint.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'geographicGraph', rpc_method_handlers)
+      'GeoGraphicGraph', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

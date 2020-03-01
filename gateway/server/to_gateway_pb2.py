@@ -18,48 +18,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x10to_gateway.proto\"3\n\x07temp_in\x12\x14\n\x05start\x18\x01 \x01(\x0b\x32\x05.Date\x12\x12\n\x03\x65nd\x18\x02 \x01(\x0b\x32\x05.Date\"0\n\x04\x44\x61te\x12\x0b\n\x03\x64\x61y\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x0c\n\x04year\x18\x03 \x01(\x05\"\x1b\n\x08temp_out\x12\x0f\n\x07\x63ountry\x18\x01 \x01(\t\"\x1d\n\x06geo_in\x12\x13\n\x04\x64\x61te\x18\x01 \x01(\x0b\x32\x05.Date\"\x1a\n\x07geo_out\x12\x0f\n\x07\x63ountry\x18\x01 \x01(\t2/\n\rtemporalGraph\x12\x1e\n\x05temps\x12\x08.temp_in\x1a\t.temp_out\"\x00\x32.\n\x0fgeographicGraph\x12\x1b\n\x04geos\x12\x07.geo_in\x1a\x08.geo_out\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x10to_gateway.proto\"0\n\x04\x44\x61te\x12\x0b\n\x03\x64\x61y\x18\x01 \x01(\x05\x12\r\n\x05month\x18\x02 \x01(\x05\x12\x0c\n\x04year\x18\x03 \x01(\x05\"<\n\x08geoPoint\x12\x0f\n\x07\x63ountry\x18\x01 \x01(\t\x12\x11\n\tconfirmed\x18\x02 \x01(\x05\x12\x0c\n\x04iso3\x18\x03 \x01(\t25\n\x0fGeoGraphicGraph\x12\"\n\ngetGeoData\x12\x05.Date\x1a\t.geoPoint\"\x00\x30\x01\x62\x06proto3'
 )
 
 
-
-
-_TEMP_IN = _descriptor.Descriptor(
-  name='temp_in',
-  full_name='temp_in',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='start', full_name='temp_in.start', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end', full_name='temp_in.end', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=20,
-  serialized_end=71,
-)
 
 
 _DATE = _descriptor.Descriptor(
@@ -102,21 +64,35 @@ _DATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=73,
-  serialized_end=121,
+  serialized_start=20,
+  serialized_end=68,
 )
 
 
-_TEMP_OUT = _descriptor.Descriptor(
-  name='temp_out',
-  full_name='temp_out',
+_GEOPOINT = _descriptor.Descriptor(
+  name='geoPoint',
+  full_name='geoPoint',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='country', full_name='temp_out.country', index=0,
+      name='country', full_name='geoPoint.country', index=0,
       number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='confirmed', full_name='geoPoint.confirmed', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='iso3', full_name='geoPoint.iso3', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -133,88 +109,13 @@ _TEMP_OUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=123,
-  serialized_end=150,
+  serialized_start=70,
+  serialized_end=130,
 )
 
-
-_GEO_IN = _descriptor.Descriptor(
-  name='geo_in',
-  full_name='geo_in',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='date', full_name='geo_in.date', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=152,
-  serialized_end=181,
-)
-
-
-_GEO_OUT = _descriptor.Descriptor(
-  name='geo_out',
-  full_name='geo_out',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='country', full_name='geo_out.country', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=183,
-  serialized_end=209,
-)
-
-_TEMP_IN.fields_by_name['start'].message_type = _DATE
-_TEMP_IN.fields_by_name['end'].message_type = _DATE
-_GEO_IN.fields_by_name['date'].message_type = _DATE
-DESCRIPTOR.message_types_by_name['temp_in'] = _TEMP_IN
 DESCRIPTOR.message_types_by_name['Date'] = _DATE
-DESCRIPTOR.message_types_by_name['temp_out'] = _TEMP_OUT
-DESCRIPTOR.message_types_by_name['geo_in'] = _GEO_IN
-DESCRIPTOR.message_types_by_name['geo_out'] = _GEO_OUT
+DESCRIPTOR.message_types_by_name['geoPoint'] = _GEOPOINT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-temp_in = _reflection.GeneratedProtocolMessageType('temp_in', (_message.Message,), {
-  'DESCRIPTOR' : _TEMP_IN,
-  '__module__' : 'to_gateway_pb2'
-  # @@protoc_insertion_point(class_scope:temp_in)
-  })
-_sym_db.RegisterMessage(temp_in)
 
 Date = _reflection.GeneratedProtocolMessageType('Date', (_message.Message,), {
   'DESCRIPTOR' : _DATE,
@@ -223,74 +124,36 @@ Date = _reflection.GeneratedProtocolMessageType('Date', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Date)
 
-temp_out = _reflection.GeneratedProtocolMessageType('temp_out', (_message.Message,), {
-  'DESCRIPTOR' : _TEMP_OUT,
+geoPoint = _reflection.GeneratedProtocolMessageType('geoPoint', (_message.Message,), {
+  'DESCRIPTOR' : _GEOPOINT,
   '__module__' : 'to_gateway_pb2'
-  # @@protoc_insertion_point(class_scope:temp_out)
+  # @@protoc_insertion_point(class_scope:geoPoint)
   })
-_sym_db.RegisterMessage(temp_out)
+_sym_db.RegisterMessage(geoPoint)
 
-geo_in = _reflection.GeneratedProtocolMessageType('geo_in', (_message.Message,), {
-  'DESCRIPTOR' : _GEO_IN,
-  '__module__' : 'to_gateway_pb2'
-  # @@protoc_insertion_point(class_scope:geo_in)
-  })
-_sym_db.RegisterMessage(geo_in)
-
-geo_out = _reflection.GeneratedProtocolMessageType('geo_out', (_message.Message,), {
-  'DESCRIPTOR' : _GEO_OUT,
-  '__module__' : 'to_gateway_pb2'
-  # @@protoc_insertion_point(class_scope:geo_out)
-  })
-_sym_db.RegisterMessage(geo_out)
-
-
-
-_TEMPORALGRAPH = _descriptor.ServiceDescriptor(
-  name='temporalGraph',
-  full_name='temporalGraph',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  serialized_start=211,
-  serialized_end=258,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='temps',
-    full_name='temporalGraph.temps',
-    index=0,
-    containing_service=None,
-    input_type=_TEMP_IN,
-    output_type=_TEMP_OUT,
-    serialized_options=None,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_TEMPORALGRAPH)
-
-DESCRIPTOR.services_by_name['temporalGraph'] = _TEMPORALGRAPH
 
 
 _GEOGRAPHICGRAPH = _descriptor.ServiceDescriptor(
-  name='geographicGraph',
-  full_name='geographicGraph',
+  name='GeoGraphicGraph',
+  full_name='GeoGraphicGraph',
   file=DESCRIPTOR,
-  index=1,
+  index=0,
   serialized_options=None,
-  serialized_start=260,
-  serialized_end=306,
+  serialized_start=132,
+  serialized_end=185,
   methods=[
   _descriptor.MethodDescriptor(
-    name='geos',
-    full_name='geographicGraph.geos',
+    name='getGeoData',
+    full_name='GeoGraphicGraph.getGeoData',
     index=0,
     containing_service=None,
-    input_type=_GEO_IN,
-    output_type=_GEO_OUT,
+    input_type=_DATE,
+    output_type=_GEOPOINT,
     serialized_options=None,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_GEOGRAPHICGRAPH)
 
-DESCRIPTOR.services_by_name['geographicGraph'] = _GEOGRAPHICGRAPH
+DESCRIPTOR.services_by_name['GeoGraphicGraph'] = _GEOGRAPHICGRAPH
 
 # @@protoc_insertion_point(module_scope)

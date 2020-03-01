@@ -7,7 +7,7 @@ export default class App extends Component {
   constructor(){
     super();
     this.state = {
-        data: null,
+        data: [],
         value:""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +18,6 @@ export default class App extends Component {
    
 
   render() {
-    const{data}=this.state;
     return(        
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -28,8 +27,7 @@ export default class App extends Component {
           </label>
           <input type="submit" value="Submit" />  
         </form> 
-        <p>{data}</p>
-        <MapChart />
+        <MapChart mapdata={this.state.data}/>
       </div>      
       
     );
@@ -38,10 +36,10 @@ export default class App extends Component {
     this.setState({value: event.target.value});
   }
   
-  handleSubmit() {
-
-    axios.get('http://localhost:3001/getmessage',{
-      time: this.state.value,
+  handleSubmit(e) {
+    e.preventDefault();
+    axios.post('http://localhost:3002/getmessage',{
+      time: this.state.value
     })
       .then((response) => {
        console.log(response);
