@@ -1,3 +1,4 @@
+import clean
 import datapackage
 import pandas as pd
 
@@ -12,27 +13,7 @@ for resource in resources:
     if resource.tabular:
         iso = pd.read_csv(resource.descriptor['path'])
         corona = pd.read_csv('02-29-2020.csv')
-        corona = corona.replace(to_replace='Mainland China', value='China')
-        corona = corona.replace(to_replace='Taiwan', value='China')
-        corona = corona.replace(to_replace='Hong Kong', value='China')
-        corona = corona.replace(to_replace='Macau', value='China')
-        corona = corona.replace(to_replace='US', 
-                                value='United States of America')
-        corona = corona.replace(to_replace='UK', 
-                                value='United Kingdom of Great Britain and Northern Ireland')
-        iso = iso.loc[:,['official_name_en','ISO3166-1-numeric']]
-        iso = iso.replace(to_replace='Republic of Korea', 
-                                value='South Korea')
-        iso = iso.replace(to_replace='Iran (Islamic Republic of)', 
-                                value='Iran')
-        iso = iso.replace(to_replace='Viet Nam', value='Vietnam')
-        iso = iso.replace(to_replace='Russian Federation', value='Russia')
-        corona = corona.drop(index=10)
-        corona = corona.drop(index=102)
-        corona = corona.merge(right=iso, how='left', 
-                              right_on='official_name_en', 
-                              left_on='Country/Region')
-        corona = corona.drop(columns='official_name_en')
+        corona = clean.cl(corona, iso)
         
 #
 #from concurrent import futures
