@@ -1,0 +1,35 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+
+// temporal service definition
+service temporalGraph {
+    rpc temps (temp_in) returns (temp_out) {}
+}
+
+// geographic service definition
+service geographicGraph {
+    rpc geos (geo_in) returns (geo_out) {}
+}
+
+// request message for temporal service
+message temp_in {
+    Date start = 1;
+    Date end = 2;
+}
+
+// response message for temporal service
+message temp_out {
+    float latitude = 1;
+    float longitude = 2;
+}
+
+// request message for geographic service
+message geo_in {
+    Date date = 1;
+}
+
+// response message for geographic service
+message geo_out {
+    float latitude = 1;
+    float longitude = 2;
+}
