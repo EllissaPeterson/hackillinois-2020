@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+// geographic service definition
+service GeoGraphicGraph {
+    rpc getGeoData(Date) returns (stream geoPoint) {}
+}
+
+message Date{
+    int32 day = 1;
+    int32 month = 2;
+    int32 year = 3; 
+}
+message geoPoint{
+    string country = 1;
+    int32 confirmed = 2;
+    string iso3 = 3;
+}
