@@ -13,8 +13,11 @@ export default class TitlePage extends React.Component {
     render() {
         return (
             <header className="App-header">
-                Title Page
-                <Button href="/options">Enter</Button>
+                <div className="title">
+                    COVID-19
+                </div>
+                <br/>
+                <Button size="lg" outline color="secondary" href="/options">Launch</Button>
             </header>
         )
     }
