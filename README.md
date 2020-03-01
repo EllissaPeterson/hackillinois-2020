@@ -7,3 +7,7 @@ It is important to note that lack of accurate reporting on affected persons due 
 The project mainly consists of a visualization that actively draws data from <a href="https://github.com/CSSEGISandData/COVID-19">this GitHub repository</a> put together by Johns Hopkins University Center for Systems Science and Engineering. In addition, a neural network machine learning model taking into account life expectancy, age group distribution, and sanitary standards in each country predicts future data for countries using China as a training set.<br>
 
 Potential for improvements include building up graphical interface, increasing model accuracy, and finetuning system-wide interoperability.
+
+<figure> <img src="https://github.com/EllissaPeterson/hackillinois-2020/blob/master/deaths.png?raw=true" style="width:33%"> <figcaption>deaths due to CoV as of 2/29</figcaption> </figure>
+<figure> <img src="https://github.com/EllissaPeterson/hackillinois-2020/blob/master/life.png?raw=true" style="width:33%"> <figcaption>average life expectancy at birth</figcaption> </figure>
+<figure> <img src="https://github.com/EllissaPeterson/hackillinois-2020/blob/master/sanitation.png?raw=true" style="width:33%"> <figcaption>% of population with access to basic sanitation</figcaption> </figure>
