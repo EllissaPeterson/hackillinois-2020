@@ -14,14 +14,16 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #95D7AE;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #454851;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-weight: 300;
 }
 
 .App-link {
@@ -36,3 +38,24 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+  color: #454851;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-weight: 700;
+  font-size: 80px;
+}
+
+.load-appear {
+  opacity: 0.01;
+}
+
+.load-appear.load-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.form {
+  padding: 150px;
+}
+

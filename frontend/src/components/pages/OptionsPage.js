@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from 'reactstrap';
+import RadioButtonsOptions from '../options/RadioButtonsOptions';
 
 export default class OptionsPage extends React.Component {
     constructor(props) {
@@ -13,9 +14,8 @@ export default class OptionsPage extends React.Component {
     render() {
         return (
             <header className="App-header">
-                Options Page
-                <Button href="/options/countries">Enter</Button>
+                <RadioButtonsOptions/>
             </header>
-        );
+        )
     }
 }

@@ -14,7 +14,7 @@ export default class OptionsPageCountries extends React.Component {
         return (
             <header className="App-header">
                 Map Page
-                <Button href="/options">Back</Button>
+                <Button color="danger" href="/options">Back</Button>
             </header>
         )
     }
