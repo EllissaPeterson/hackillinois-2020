@@ -1,4 +1,4 @@
-# Risk Assessment and Data Visualization of 2019 Novel Coronavirus (COVID-19)
+# Risk Assessment and Data Visualization of 2019 Novel Coronavirus (SARS-CoV-2)
 
 title: 
 
