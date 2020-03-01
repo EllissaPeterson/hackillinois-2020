@@ -1,8 +1,8 @@
 syntax = "proto3";
 
 service Messenger {
-    rpc GetDump (Date) returns (Dump) {}
-    rpc HasUpdate (Date) returns (UpdateStatus) {}  
+    rpc GetDump (Date2) returns (Dump) {}
+    rpc HasUpdate (Date2) returns (UpdateStatus) {}  
 }
 
 message Location {
@@ -10,7 +10,7 @@ message Location {
     float longitude = 2;
 }
 
-message Date {
+message Date2 {
     int32 month = 1;
     int32 day = 2;
     int32 year = 3;
@@ -18,7 +18,7 @@ message Date {
 
 message Row {
     Location location = 1;
-    Date date = 2;
+    Date2 date = 2;
     int32 confirmed_cases = 3;
     int32 confirmed_deaths = 4;
     int32 confirmed_recovered = 5;

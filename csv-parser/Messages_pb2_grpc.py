@@ -14,10 +14,15 @@ class MessengerStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.SendDump = channel.unary_unary(
-        '/Messenger/SendDump',
-        request_serializer=Messages__pb2.DumpRequest.SerializeToString,
+    self.GetDump = channel.unary_unary(
+        '/Messenger/GetDump',
+        request_serializer=Messages__pb2.Date2.SerializeToString,
         response_deserializer=Messages__pb2.Dump.FromString,
+        )
+    self.HasUpdate = channel.unary_unary(
+        '/Messenger/HasUpdate',
+        request_serializer=Messages__pb2.Date2.SerializeToString,
+        response_deserializer=Messages__pb2.UpdateStatus.FromString,
         )
 
 
@@ -25,7 +30,14 @@ class MessengerServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def SendDump(self, request, context):
+  def GetDump(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def HasUpdate(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -35,10 +47,15 @@ class MessengerServicer(object):
 
 def add_MessengerServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'SendDump': grpc.unary_unary_rpc_method_handler(
-          servicer.SendDump,
-          request_deserializer=Messages__pb2.DumpRequest.FromString,
+      'GetDump': grpc.unary_unary_rpc_method_handler(
+          servicer.GetDump,
+          request_deserializer=Messages__pb2.Date2.FromString,
           response_serializer=Messages__pb2.Dump.SerializeToString,
+      ),
+      'HasUpdate': grpc.unary_unary_rpc_method_handler(
+          servicer.HasUpdate,
+          request_deserializer=Messages__pb2.Date2.FromString,
+          response_serializer=Messages__pb2.UpdateStatus.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
