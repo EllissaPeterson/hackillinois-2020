@@ -1,15 +1,18 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import MapChart from "./MapChart";  
+import MapChart from "./MapChart.jsx";  
 
 export default class App extends Component {
   constructor(){
     super();
     this.state = {
         data: null,
+        value:""
     };
-    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+
   }
 
    
@@ -18,17 +21,28 @@ export default class App extends Component {
     const{data}=this.state;
     return(        
       <div>
-        <button type="button" onClick={this.handleLogin}>Button</button>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Time:
+            <input type="text" value={this.state.value} onChange={this.handleChange} name="time" />
+          </label>
+          <input type="submit" value="Submit" />  
+        </form> 
         <p>{data}</p>
         <MapChart />
       </div>      
       
     );
   }
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+  
+  handleSubmit() {
 
-  handleLogin() {
-
-    axios.get('http://localhost:3001/getmessage')
+    axios.get('http://localhost:3001/getmessage',{
+      time: this.state.value,
+    })
       .then((response) => {
        console.log(response);
        this.setState({data: response.data})

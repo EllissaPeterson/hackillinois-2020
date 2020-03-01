@@ -14,8 +14,11 @@ CORS(app)
 @app.route("/getmessage")
 def hello():
     print("Recieved Request")
-    r = rpc()
-    return r.message
+    print(request.form['time'])
+    with grpc.insecure_channel('localhost:50052') as channel:
+        stub = frontend_pb2_grpc.GreeterStub(channel)
+        response = stub.SayHello(frontend_pb2.HelloRequest(time=request.form['time']))
+    return response.message
 
 @app.route("/")
 def default():
@@ -24,10 +27,8 @@ def default():
 def rpc():
    
     with grpc.insecure_channel('localhost:50052') as channel:
-        print('hi')
         stub = frontend_pb2_grpc.GreeterStub(channel)
         response = stub.SayHello(frontend_pb2.HelloRequest(name='you'))
-        print('hi2')
 
     return response
 
