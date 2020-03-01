@@ -1,6 +1,6 @@
-# hackillinois-2020
+# Risk Assessment and Data Visualization of 2019 Novel Coronavirus (COVID-19)
 
-title: risk assessment and data visualization of 2019 novel coronavirus (2019-nCoV)
+title: 
 
 WHO: epidemic (not pandemic)<br>
 -> epidemic definition
