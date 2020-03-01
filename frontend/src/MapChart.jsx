@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import { csv } from "d3-fetch";
 
-import { scaleLinear } from "d3-scale";
+import { scaleLinear, scaleLog } from "d3-scale";
 import {
   ComposableMap,
   Geographies,
@@ -26,9 +26,9 @@ export default class MapChart extends Component {
   render(){
     const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-    const colorScale = scaleLinear()
-    .domain([0.29, 0.68])
-    .range(["#ffedea", "#ff5233"]);
+    const colorScale = scaleLog()
+    .domain([0, 90000])
+    .range(["#73956F", "#95D7AE"]);
 
     var data = this.props.mapdata
 
