@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+service Messenger {
+    rpc SendDump (DumpRequest) returns (Dump) {}
+}
+
+message Date {
+    int32 month = 1;
+    int32 day = 2;
+    int32 year = 3;
+}
+
+message Row {
+    float latitude = 1;
+    float longitude = 2;
+    Date date = 3;
+    int32 confirmed_cases = 4;
+    int32 confirmed_deaths = 5;
+    int32 confirmed_recovered = 6;
+}
+
+message Dump {
+    repeated Row rows = 1;
+}
+
+message DumpRequest {
+    bool init = 1;
+}
